@@ -1,0 +1,19 @@
+/* ChatGPT Integration Plugin Styles */
+
+/* Optional: Add custom styles here if needed */
+
+.chatgpt-modal {
+    padding: 20px;
+}
+
+.chatgpt-modal textarea {
+    font-family: var(--font-text);
+    font-size: var(--font-ui-medium);
+}
+
+.chatgpt-response {
+    background-color: var(--background-secondary);
+    border-left: 3px solid var(--interactive-accent);
+    padding: 10px;
+    margin: 10px 0;
+}

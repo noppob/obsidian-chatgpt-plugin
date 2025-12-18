@@ -1,0 +1,10 @@
+{
+  "id": "chatgpt-integration",
+  "name": "ChatGPT Integration",
+  "version": "1.0.6",
+  "minAppVersion": "0.15.0",
+  "description": "Ask ChatGPT about selected text and insert the response directly into your notes. Supports GPT-4o and latest models.",
+  "author": "noppob",
+  "authorUrl": "https://github.com/noppob",
+  "isDesktopOnly": false
+}

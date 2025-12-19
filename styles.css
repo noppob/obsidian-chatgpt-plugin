@@ -1,0 +1,90 @@
+/* ChatGPT Integration Plugin Styles */
+
+/* フローティングボタン */
+.chatgpt-floating-button {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--interactive-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    transition: transform 0.2s, box-shadow 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.chatgpt-floating-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.chatgpt-floating-button:active {
+    transform: scale(0.95);
+}
+
+/* ChatGPTカスタムプロンプトモーダルのみに適用（他のモーダルに影響しない） */
+.modal.chatgpt-custom-modal {
+    position: fixed !important;
+    top: 80px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    max-width: 600px !important;
+    width: 90% !important;
+    max-height: 300px !important;
+    padding: 20px !important;
+    margin: 0 !important;
+}
+
+.modal.chatgpt-custom-modal h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.modal.chatgpt-custom-modal textarea {
+    font-size: 16px !important;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    padding: 8px;
+    caret-color: var(--interactive-accent);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.modal.chatgpt-custom-modal textarea:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 2px rgba(var(--interactive-accent-rgb), 0.2);
+}
+
+.modal.chatgpt-custom-modal button {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.chatgpt-modal {
+    padding: 20px;
+}
+
+.chatgpt-modal textarea {
+    font-family: var(--font-text);
+    font-size: var(--font-ui-medium);
+}
+
+.chatgpt-response {
+    background-color: var(--background-secondary);
+    border-left: 3px solid var(--interactive-accent);
+    padding: 10px;
+    margin: 10px 0;
+}

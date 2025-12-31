@@ -1,0 +1,451 @@
+/* ChatGPT Integration Plugin Styles */
+
+/* フローティングボタン */
+.chatgpt-floating-button {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--interactive-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    transition: transform 0.2s, box-shadow 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.chatgpt-floating-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.chatgpt-floating-button:active {
+    transform: scale(0.95);
+}
+
+/* ChatGPTカスタムプロンプトモーダルのみに適用（他のモーダルに影響しない） */
+.modal.chatgpt-custom-modal {
+    position: fixed !important;
+    top: 80px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    max-width: 600px !important;
+    width: 90% !important;
+    max-height: 300px !important;
+    padding: 20px !important;
+    margin: 0 !important;
+}
+
+.modal.chatgpt-custom-modal h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.modal.chatgpt-custom-modal textarea {
+    font-size: 16px !important;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    padding: 8px;
+    caret-color: var(--interactive-accent) !important;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    /* モバイルでのカーソル点滅を強制 */
+    -webkit-user-select: text !important;
+    user-select: text !important;
+    cursor: text !important;
+}
+
+.modal.chatgpt-custom-modal textarea:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 2px rgba(var(--interactive-accent-rgb), 0.2);
+    /* カーソル点滅をさらに強調 */
+    caret-color: var(--interactive-accent) !important;
+}
+
+.modal.chatgpt-custom-modal button {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.chatgpt-modal {
+    padding: 20px;
+}
+
+.chatgpt-modal textarea {
+    font-family: var(--font-text);
+    font-size: var(--font-ui-medium);
+}
+
+.chatgpt-response {
+    background-color: var(--background-secondary);
+    border-left: 3px solid var(--interactive-accent);
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* 対話型ChatGPTモーダル */
+.modal.chatgpt-interactive-modal {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    max-width: 800px !important;
+    width: 90vw !important;
+    max-height: 85vh !important;
+    height: 85vh !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.modal.chatgpt-interactive-modal .modal-content {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    padding: 20px !important;
+}
+
+.modal.chatgpt-interactive-modal h2 {
+    margin: 0 0 15px 0 !important;
+    font-size: 20px !important;
+    flex-shrink: 0;
+}
+
+/* 選択テキストコンテキストセクション */
+.chatgpt-context-section {
+    background: var(--background-secondary);
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 15px;
+    flex-shrink: 0;
+}
+
+.chatgpt-context-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.chatgpt-toggle-icon {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.chatgpt-context-content {
+    margin-top: 8px;
+}
+
+.chatgpt-context-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* 会話履歴エリア */
+.chatgpt-conversation {
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background: var(--background-primary);
+    min-height: 200px;
+}
+
+.chatgpt-empty-message {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 40px 20px;
+    font-size: 14px;
+}
+
+.chatgpt-message {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chatgpt-message-icon {
+    flex-shrink: 0;
+    font-size: 20px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatgpt-message-content {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 8px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 14px;
+    user-select: text;
+    -webkit-user-select: text;
+    cursor: text;
+}
+
+/* Markdown要素の間隔を調整（モーダル表示用に最適化） */
+.chatgpt-message-content p {
+    margin: 0.3em 0;
+    line-height: 1.5;
+}
+
+.chatgpt-message-content ul,
+.chatgpt-message-content ol {
+    margin: 0.3em 0;
+    padding-left: 1.2em;  /* インデントを小さく */
+}
+
+.chatgpt-message-content li {
+    margin: 0.1em 0;
+    line-height: 1.4;
+}
+
+.chatgpt-message-content h1,
+.chatgpt-message-content h2,
+.chatgpt-message-content h3,
+.chatgpt-message-content h4,
+.chatgpt-message-content h5,
+.chatgpt-message-content h6 {
+    margin: 0.5em 0 0.3em 0;
+    line-height: 1.3;
+}
+
+.chatgpt-message-content pre {
+    margin: 0.5em 0;
+    padding: 0.5em;
+}
+
+.chatgpt-message-content code {
+    padding: 0.1em 0.3em;
+}
+
+.chatgpt-message-content blockquote {
+    margin: 0.5em 0;
+    padding-left: 1em;
+    border-left: 3px solid var(--background-modifier-border);
+}
+
+.chatgpt-message-user .chatgpt-message-content {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+.chatgpt-message-assistant .chatgpt-message-content {
+    background: var(--background-secondary);
+    color: var(--text-normal);
+    border: 1px solid var(--background-modifier-border);
+}
+
+.chatgpt-message-loading .chatgpt-message-content {
+    background: var(--background-secondary);
+    color: var(--text-muted);
+    font-style: italic;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* 入力セクション */
+.chatgpt-input-section {
+    flex-shrink: 0;
+    border-top: 1px solid var(--background-modifier-border);
+    padding-top: 15px;
+}
+
+.chatgpt-input-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 10px;
+}
+
+.chatgpt-input-content {
+    margin-top: 0;
+}
+
+.chatgpt-input {
+    width: 100% !important;
+    min-height: 80px !important;
+    max-height: 150px !important;
+    resize: vertical !important;
+    font-size: 14px !important;
+    border: 1px solid var(--background-modifier-border) !important;
+    border-radius: 6px !important;
+    padding: 10px !important;
+    margin-bottom: 10px !important;
+    font-family: var(--font-text) !important;
+    line-height: 1.5 !important;
+    caret-color: var(--interactive-accent) !important;
+}
+
+.chatgpt-input::placeholder {
+    color: var(--text-muted) !important;
+    opacity: 0.6 !important;
+    font-style: italic !important;
+}
+
+.chatgpt-input:focus {
+    outline: none !important;
+    border-color: var(--interactive-accent) !important;
+    box-shadow: 0 0 0 2px rgba(var(--interactive-accent-rgb), 0.2) !important;
+}
+
+.chatgpt-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ボタンコンテナ */
+.chatgpt-button-container {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.chatgpt-button-container button {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.chatgpt-send-btn {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+.chatgpt-send-btn:hover:not(:disabled) {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.chatgpt-send-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.chatgpt-insert-btn {
+    background: var(--interactive-success);
+    color: white;
+}
+
+.chatgpt-insert-btn:hover:not(:disabled) {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.chatgpt-insert-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.chatgpt-cancel-btn {
+    background: var(--background-modifier-border);
+    color: var(--text-normal);
+}
+
+.chatgpt-cancel-btn:hover {
+    background: var(--background-modifier-border-hover);
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .modal.chatgpt-interactive-modal {
+        width: 95vw !important;
+        height: 90vh !important;
+        max-height: 90vh !important;
+    }
+
+    .modal.chatgpt-interactive-modal .modal-content {
+        padding: 15px !important;
+    }
+
+    .chatgpt-conversation {
+        min-height: 150px;
+    }
+
+    .chatgpt-input {
+        min-height: 60px !important;
+    }
+
+    /* モバイルでもボタンは横並び（小さいサイズで） */
+    .chatgpt-button-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .chatgpt-button-container button {
+        flex: 1 1 auto;
+        min-width: fit-content;
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
+
+/* iPhone対応 - 入力欄が画面下部に隠れないように */
+@media (max-width: 480px) {
+    .modal.chatgpt-interactive-modal {
+        top: 5% !important;
+        transform: translate(-50%, 0) !important;
+        height: auto !important;
+        max-height: 90vh !important;
+    }
+
+    .chatgpt-input-section {
+        position: sticky;
+        bottom: 0;
+        background: var(--background-primary);
+        z-index: 10;
+    }
+}
